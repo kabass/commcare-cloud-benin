@@ -26,7 +26,12 @@
     line: 'permission javax.management.MBeanTrustPermission "register";'
     insertafter: 'grant {'
     state: present
-
+- name: Ensure the required MBeanTrustPermission is present in the java.policy file  #BKA
+  ansible.builtin.lineinfile:
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.policy  # Adjust to the correct path
+    line: 'permission javax.management.MBeanTrustPermission "unregister";'
+    insertafter: 'grant {'
+    state: present
 - name: Ensure the required MBeanServerPermission is present in the java.policy file
   lineinfile:
     path: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.policy  # Adjust to the correct path
@@ -38,6 +43,13 @@
   ansible.builtin.lineinfile:
     path: /usr/lib/jvm/java-17-openjdk-amd64/lib/security/default.policy  # Adjust to the correct path
     line: 'permission javax.management.MBeanTrustPermission "register";'
+    insertafter: 'grant {'
+    state: present
+
+- name: Ensure the required MBeanTrustPermission is present in the java.policy file  #BKA
+  ansible.builtin.lineinfile:
+    path: /usr/lib/jvm/java-17-openjdk-amd64/lib/security/default.policy  # Adjust to the correct path
+    line: 'permission javax.management.MBeanTrustPermission "unregister";'
     insertafter: 'grant {'
     state: present
 
