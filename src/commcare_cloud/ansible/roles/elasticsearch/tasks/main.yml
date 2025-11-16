@@ -25,6 +25,14 @@
     state: present
   become: yes
 
+  
+- name: Download Elasticsearch 5
+  become: yes
+  copy:
+    src: "elasticsearch-5.6.16.tar.gz"
+    dest: "/home/{{ cchq_user }}/downloads/elasticsearch-{{ elasticsearch_version }}.tar.gz"
+  when: elasticsearch_version == "5.6.16"
+
 - name: Download Elasticsearch 6
   become: yes
   get_url:
