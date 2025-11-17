@@ -62,5 +62,6 @@
   rabbitmq_plugin:
     names: rabbitmq_management,rabbitmq_tracing,rabbitmq_federation
     state: enabled
+    broker_state: offline
   notify:
   - restart rabbitmq
