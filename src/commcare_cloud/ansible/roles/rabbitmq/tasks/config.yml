@@ -1,9 +1,10 @@
 ---
 - name: Install rabbitmq plugins
   become: true
-  rabbitmq_plugin: >
-    names=rabbitmq_management
-    state=enabled
+  rabbitmq_plugin: 
+    names: rabbitmq_management
+    state: enabled
+    broker_state: offline
 
 - name: Ensure vhost commcarehq is present
   become: true
