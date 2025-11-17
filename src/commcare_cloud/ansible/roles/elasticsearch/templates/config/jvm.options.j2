@@ -61,6 +61,11 @@
 {% endif %}
 
 ## heap dumps
+{% if elasticsearch_version == '5.6.16' %}
+-Djava.security.policy=/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.policy
+{% else %}
+-Djava.security.policy=/usr/lib/jvm/java-17-openjdk-amd64/lib/security/default.policy
+{% endif %}
 
 # generate a heap dump when an allocation from the Java heap fails
 # heap dumps are created in the working directory of the JVM
@@ -85,3 +90,4 @@
 
 # JDK 9+ GC logging
 9-:-Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,pid,tags:filecount=32,filesize=64m
+
