@@ -126,3 +126,5 @@ node.roles: [ data ]
 {% if elasticsearch_version is version('7.0.0', '>=') and remote_es2_host is defined %}
 reindex.remote.whitelist: {{remote_es2_host}}
 {% endif %}
+
+bootstrap.system_call_filter: false
