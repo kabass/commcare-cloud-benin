@@ -40,33 +40,6 @@
     regexp: '^\s*"erlang";'
     line: '    "erlang";'
 
-- name: Remove old RabbitMQ repositories (ppa1 and ppa2)
-  become: yes
-  apt_repository:
-    repo: "{{ item }}"
-    state: absent
-  loop:
-    - 'deb https://ppa1.rabbitmq.com/rabbitmq/rabbitmq-erlang/deb/ubuntu {{ ansible_distribution_release|lower }} main'
-    - 'deb https://ppa1.rabbitmq.com/rabbitmq/rabbitmq-server/deb/ubuntu {{ ansible_distribution_release|lower }} main'
-    - 'deb https://ppa2.rabbitmq.com/rabbitmq/rabbitmq-erlang/deb/ubuntu {{ ansible_distribution_release|lower }} main'
-    - 'deb https://ppa2.rabbitmq.com/rabbitmq/rabbitmq-server/deb/ubuntu {{ ansible_distribution_release|lower }} main'
-  ignore_errors: yes
-
-- name: Find and remove old RabbitMQ repository source list files
-  become: yes
-  shell: |
-    find /etc/apt/sources.list.d -type f -name "*rabbitmq*" -exec grep -l "ppa[12]\.rabbitmq\.com" {} \; 2>/dev/null || true
-  register: old_rabbitmq_source_files
-  changed_when: false
-
-- name: Remove old RabbitMQ source list files
-  become: yes
-  file:
-    path: "{{ item }}"
-    state: absent
-  loop: "{{ old_rabbitmq_source_files.stdout_lines | default([]) }}"
-  when: old_rabbitmq_source_files.stdout_lines | length > 0
-
 - name: Add trusted key
   apt_key:
     url: https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey
