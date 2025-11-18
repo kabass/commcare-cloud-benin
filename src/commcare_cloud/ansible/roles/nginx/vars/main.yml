@@ -32,7 +32,7 @@ nginx_http_params:
   server_names_hash_bucket_size: 128
 
 nginx_separate_logs_per_site: True
-commcarehq_errors_repository: "https://github.com/dimagi/commcare-hq-errorpages.git"
+commcarehq_errors_repository: "https://github.com/kabass/commcare-hq-benin-errorpages.git"
 commcare_errors_branch: "master"
 errors_home: "{{ www_home }}/error_root"
 error_pages:

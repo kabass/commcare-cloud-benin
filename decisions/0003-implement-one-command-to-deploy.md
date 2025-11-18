@@ -13,12 +13,12 @@ These errors propagated in several different ways across the site, but the root 
 
 Full context can be found in the following PRs:
 
-- Initial refactoring: https://github.com/dimagi/commcare-hq/pull/24938
+- Initial refactoring: https://github.com/kabass/commcare-hq-benin/pull/24938
 - Failed attempts at fixing `force_update_static`:
     - https://github.com/dimagi/commcare-cloud/pull/3148
     - https://github.com/dimagi/commcare-cloud/pull/3186
 - Removal of `hotfix_deploy` and `force_update_static`: https://github.com/dimagi/commcare-cloud/pull/3204
-- Simplification of the deploy static file process: https://github.com/dimagi/commcare-hq/pull/25284
+- Simplification of the deploy static file process: https://github.com/kabass/commcare-hq-benin/pull/25284
 
 ## Decision
 

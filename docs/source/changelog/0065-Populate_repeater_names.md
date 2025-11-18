@@ -9,7 +9,7 @@
 
 ## CommCare Version Dependency
 The following version of CommCare must be deployed before rolling out this change:
-[ec13eacc](https://github.com/dimagi/commcare-hq/commit/ec13eaccc55d14b708c4e25349edcfd6936fb4d1)
+[ec13eacc](https://github.com/kabass/commcare-hq-benin/commit/ec13eaccc55d14b708c4e25349edcfd6936fb4d1)
 
 
 ## Change Context

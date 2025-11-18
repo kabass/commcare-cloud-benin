@@ -248,7 +248,7 @@ CommCare deploy
 
 For locally hosted deployments, we recommend deploying **once a week** (for example, every Wednesday), to keep up to date with new features and security patches.
 
-Since CommCare HQ is an Open Source project, you can see all the new features that were recently merged by looking at the `merged pull requests <https://github.com/dimagi/commcare-hq/pulls?q=is%3Apr+is%3Aclosed>`_ on GitHub.
+Since CommCare HQ is an Open Source project, you can see all the new features that were recently merged by looking at the `merged pull requests <https://github.com/kabass/commcare-hq-benin/pulls?q=is%3Apr+is%3Aclosed>`_ on GitHub.
 
 Formplayer deploy
 -----------------

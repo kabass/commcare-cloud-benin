@@ -2,10 +2,10 @@ env_key: host.environment
 id: 1400710
 message: |-
   {{#is_alert}}
-  Seriously consider prioritizing auto-deleting old files as discussed here: https://github.com/dimagi/commcare-hq/pull/14178#issuecomment-267057882, or agree on some other solution
+  Seriously consider prioritizing auto-deleting old files as discussed here: https://github.com/kabass/commcare-hq-benin/pull/14178#issuecomment-267057882, or agree on some other solution
   {{/is_alert}}
   {{#is_warning}}
-  This is just a warning with a low threshold to remind you to re-evaluate, as discussed here: https://github.com/dimagi/commcare-hq/pull/14178#issuecomment-267158655
+  This is just a warning with a low threshold to remind you to re-evaluate, as discussed here: https://github.com/kabass/commcare-hq-benin/pull/14178#issuecomment-267158655
   {{/is_warning}}
    @slack-hq-ops
 name: Case Importer upload files total size high

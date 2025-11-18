@@ -9,9 +9,9 @@
 
 ## CommCare Version Dependency
 CommCare versions beyond the following commit require this change to function correctly:
-[72fc5f10](https://github.com/dimagi/commcare-hq/commit/72fc5f10dd31c42d854d20ed99d435ff3d2ad7a0)
+[72fc5f10](https://github.com/kabass/commcare-hq-benin/commit/72fc5f10dd31c42d854d20ed99d435ff3d2ad7a0)
 The following version of CommCare must be deployed before rolling out this change:
-[b2b03835](https://github.com/dimagi/commcare-hq/commit/b2b0383598d89238466cfebc384b0c6e142961bc)
+[b2b03835](https://github.com/kabass/commcare-hq-benin/commit/b2b0383598d89238466cfebc384b0c6e142961bc)
 
 
 ## Change Context

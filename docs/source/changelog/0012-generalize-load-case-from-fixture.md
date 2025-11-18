@@ -9,7 +9,7 @@
 
 ## CommCare Version Dependency
 CommCare versions beyond the following commit require this change to function correctly:
-[e25dbd4a](https://github.com/dimagi/commcare-hq/commit/e25dbd4aa88523e3913f0acfae7c98e32f4c06c1)
+[e25dbd4a](https://github.com/kabass/commcare-hq-benin/commit/e25dbd4aa88523e3913f0acfae7c98e32f4c06c1)
 
 
 ## Change Context

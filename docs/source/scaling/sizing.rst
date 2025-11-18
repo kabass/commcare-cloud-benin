@@ -33,7 +33,7 @@ The general process for using commcare_resource_model is below.
 The configuration file has three main sections that specifies the baseline usage and load of the system. Below are the three sections.
 
 
-- **Usage section** Under this section all usage parameters such as number of users by date ranges and its correlation to load parameters (form submissions, case creations, case updates, multimedia submissions and syncs etc) can be listed. These numbers and ratios can be obtained by `project_stats_report <https://github.com/dimagi/commcare-hq/blob/master/corehq/apps/reports/management/commands/project_stats_report.py>`__ management command and also by examining the individual services, processes running one each VM.
+- **Usage section** Under this section all usage parameters such as number of users by date ranges and its correlation to load parameters (form submissions, case creations, case updates, multimedia submissions and syncs etc) can be listed. These numbers and ratios can be obtained by `project_stats_report <https://github.com/kabass/commcare-hq-benin/blob/master/corehq/apps/reports/management/commands/project_stats_report.py>`__ management command and also by examining the individual services, processes running one each VM.
 - **Services section** for resource calculations for each service. This section can refer to one or more usage parameters from usage section which specifies the amount of usage that resource can handle.
 - **Summary dates** The dates for which the resources need to be estimated.
 - Additional parameters such as estimation_buffer, storage_display_unit etc are available.
