@@ -9,7 +9,7 @@
 
 ## CommCare Version Dependency
 CommCare versions beyond the following commit require this change to function correctly:
-[8f11208a](https://github.com/kabass/commcare-hq-benin/commit/8f11208ad6510473003ef4c5eef74fa5e1bc1bed)
+[8f11208a](https://github.com/dimagi/commcare-hq/commit/8f11208ad6510473003ef4c5eef74fa5e1bc1bed)
 
 
 ## Change Context
@@ -27,12 +27,12 @@ migrated before that happens.
 
 ## Steps to update
 Follow the steps outlined in the 
-[migration document](https://github.com/kabass/commcare-hq-benin/blob/8f11208ad6510473003ef4c5eef74fa5e1bc1bed/corehq/apps/couch_sql_migration/README.md)
+[migration document](https://github.com/dimagi/commcare-hq/blob/8f11208ad6510473003ef4c5eef74fa5e1bc1bed/corehq/apps/couch_sql_migration/README.md)
 to find and migrate all Couch domains in your environment.
 
 It is necessary to check out an older version of CommCareHQ to run the
 migration since the migration code has been deleted on the main branch.
-After running the command `cd $RELEASE_PATH` in the [setup steps](https://github.com/kabass/commcare-hq-benin/blob/8f11208ad6510473003ef4c5eef74fa5e1bc1bed/corehq/apps/couch_sql_migration/README.md#setup),
+After running the command `cd $RELEASE_PATH` in the [setup steps](https://github.com/dimagi/commcare-hq/blob/8f11208ad6510473003ef4c5eef74fa5e1bc1bed/corehq/apps/couch_sql_migration/README.md#setup),
 run the following command to checkout a version that contains the migration
 code:
 

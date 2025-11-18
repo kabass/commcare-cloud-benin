@@ -20,7 +20,7 @@ If you are looking for something else please see below.
 
 - If you are interested in using CommCare HQ without having to host yourself, please check out our cloud offering at https://www.commcarehq.org.
 - Docs on how to use CommCare HQ https://wiki.commcarehq.org/display/commcarepublic/Home
-- Setting up CommCare HQ locally for development https://github.com/kabass/commcare-hq-benin/blob/master/DEV_SETUP.md
+- Setting up CommCare HQ locally for development https://github.com/dimagi/commcare-hq/blob/master/DEV_SETUP.md
  
 
 A word of caution on Self Hosting

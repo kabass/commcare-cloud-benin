@@ -38,7 +38,7 @@ def validate_shards(shard_ranges_by_partition_name):
     Validate that shards partitioning in config is valid
 
     based off of
-    https://github.com/kabass/commcare-hq-benin/blob/d8fdc0e5b2f7a3200ea743da60be8f808ddd8a60/corehq/sql_db/config.py#L74-L93
+    https://github.com/dimagi/commcare-hq/blob/d8fdc0e5b2f7a3200ea743da60be8f808ddd8a60/corehq/sql_db/config.py#L74-L93
 
     """
     shards_seen = set()

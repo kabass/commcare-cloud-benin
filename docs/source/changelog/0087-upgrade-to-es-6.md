@@ -87,7 +87,7 @@ The Elasticsearch upgrade is a multi-step process.
 
     If you don't see these variables in the `public.yml` file, you should add them in the `localsettings:` block. They are required to run the reindexing process.
 
-    If you want to understand more about these variables, read our [Adapter Design](https://github.com/kabass/commcare-hq-benin/blob/master/corehq/apps/es/README.rst#adapter-design) document.
+    If you want to understand more about these variables, read our [Adapter Design](https://github.com/dimagi/commcare-hq/blob/master/corehq/apps/es/README.rst#adapter-design) document.
 
 5. Run update config and restart the services to apply the changes.
 
@@ -98,7 +98,7 @@ The Elasticsearch upgrade is a multi-step process.
 6. Run the reindexing process.
   
     > If you don't have enough space available in your elasticsearch cluster, it is recommended to add more storage capacity before reindexing.
-    > If you don't have the option to add more storage, you will need to reindex one index at a time. You should follow the process described in [Reindexing One Index at A Time](https://github.com/kabass/commcare-hq-benin/blob/master/corehq/apps/es/REINDEX_PROCESS.md#reindexing-one-index-at-a-time)
+    > If you don't have the option to add more storage, you will need to reindex one index at a time. You should follow the process described in [Reindexing One Index at A Time](https://github.com/dimagi/commcare-hq/blob/master/corehq/apps/es/REINDEX_PROCESS.md#reindexing-one-index-at-a-time)
   
 
     It is advised to run the following steps in a tmux session as they might take a long time and can be detached/re-attached as needed for monitoring progress.
@@ -156,7 +156,7 @@ The Elasticsearch upgrade is a multi-step process.
 
             Please note that the counts may not match perfectly for high frequency indices like case_search, cases, and forms. In such cases, ensure the difference in counts is small (within one hundred) and there are no errors in reindex logs.
 
-            If reindex fails for any index, please refer to the docs [here](https://github.com/kabass/commcare-hq-benin/blob/master/corehq/apps/es/REINDEX_PROCESS.md#common-issues-resolutions-during-reindex) for troubleshooting steps.
+            If reindex fails for any index, please refer to the docs [here](https://github.com/dimagi/commcare-hq/blob/master/corehq/apps/es/REINDEX_PROCESS.md#common-issues-resolutions-during-reindex) for troubleshooting steps.
 
   4. If doc counts match and there are no errors present in the reindex logs, the reindex for the current index is complete. You can continue reindexing for the next index by repeating steps 7.1-7.3 with `${INDEX_CNAME}` set to 'cases', 'case_search' and so on for all indices.
 
