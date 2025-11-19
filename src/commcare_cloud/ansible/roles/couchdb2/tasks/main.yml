@@ -224,6 +224,19 @@
     - cron
     - backups
 
+- name: Install boto3 (1.10.0 for backup )
+  become: yes
+  pip:
+    name:
+      - boto3==1.10.0
+    state: latest
+    executable: pip
+  become_user: "{{ couchdb_user }}"
+  when: couch_s3|bool
+  tags:
+    - cron
+    - backups
+
 - name: couchdb2 monit config
   template:
     src: "monit.couchdb2.j2"

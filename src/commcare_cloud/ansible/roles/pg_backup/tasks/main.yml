@@ -24,3 +24,12 @@
 
 - import_tasks: backup.yml
   when: backup_postgres in ["plain", "dump"]
+
+- name: Install boto3 (1.10.0 for backup )
+  become: yes
+  pip:
+    name:
+      - boto3==1.10.0
+    state: latest
+    executable: pip
+  become_user: postgres
