@@ -230,7 +230,6 @@
   shell: |
     chown couchdb:couchdb /opt/data/backups/couchdb2
     chown couchdb:couchdb /opt/couchdb
-    chown couchdb:couchdb /opt/couchdb/.local
   become: yes
   tags:
     - cron
