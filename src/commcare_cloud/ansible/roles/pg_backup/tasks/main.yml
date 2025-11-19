@@ -25,6 +25,15 @@
 - import_tasks: backup.yml
   when: backup_postgres in ["plain", "dump"]
 
+## chmod couchdb user to read and write to /opt/data/backups
+- name: chmod couchdb user to read and write to /opt/data/backups
+  shell: |
+    chown postgres:postgres /opt/data/backups/postgresql
+  become: yes
+  tags:
+    - cron
+    - backups
+
 - name: Install boto3 (1.10.0 for backup )
   become: yes
   pip:
