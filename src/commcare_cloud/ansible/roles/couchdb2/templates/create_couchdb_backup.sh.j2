@@ -6,8 +6,7 @@ HOSTNAME=$(hostname)
 TODAY=$(date +"%Y_%m_%d")
 HOUR=$(date +"%Y_%m_%d_%H")
 
-BACKUP_FILE="couchdb_${BACKUP_TYPE}_${TODAY}.tar.gz"
-HOURLY_BACKUP_FILE="couchdb_${BACKUP_TYPE}_${HOUR}.tar.gz"
+BACKUP_FILE="couchdb_${BACKUP_TYPE}_${HOUR}.tar.gz"
 
 COUCHDB_BACKUP_HOURLY={{ couch_backup_hourly }}
 
@@ -20,7 +19,7 @@ UPLOAD_NAME="couchdb_${BACKUP_TYPE}_${HOSTNAME}.tar.gz"
 
 if [ "$COUCHDB_BACKUP_HOURLY" == True ] && [ "$BACKUP_TYPE" == "hourly" ]; 
 then
-	tar -Pzcf "./${HOURLY_BACKUP_FILE}" "{{ couch_data_dir }}"
+	tar -Pzcf "./${BACKUP_FILE}" "{{ couch_data_dir }}"
 	# Remove old backups of this backup type of last x mins
 	find . -mmin "+${MINUTES_TO_RETAIN_BACKUPS}" -name "couchdb_${BACKUP_TYPE}_*" ! -path "*weekly*" ! -path "*daily*" -delete;
 else
