@@ -20,22 +20,22 @@ UPLOAD_NAME="couchdb_${BACKUP_TYPE}_${HOSTNAME}.tar.gz"
 
 if [ "$COUCHDB_BACKUP_HOURLY" == True ] && [ "$BACKUP_TYPE" == "hourly" ]; 
 then
-	tar -Pzcf "{{ couch_backup_dir }}/${HOURLY_BACKUP_FILE}" "{{ couch_data_dir }}"
+	tar -Pzcf "./${HOURLY_BACKUP_FILE}" "{{ couch_data_dir }}"
 	# Remove old backups of this backup type of last x mins
-	find {{ couch_backup_dir }} -mmin "+${MINUTES_TO_RETAIN_BACKUPS}" -name "couchdb_${BACKUP_TYPE}_*" ! -path "*weekly*" ! -path "*daily*" -delete;
+	find . -mmin "+${MINUTES_TO_RETAIN_BACKUPS}" -name "couchdb_${BACKUP_TYPE}_*" ! -path "*weekly*" ! -path "*daily*" -delete;
 else
-	tar -Pzcf "{{ couch_backup_dir }}/${BACKUP_FILE}" "{{ couch_data_dir }}"
+	tar -Pzcf "./${BACKUP_FILE}" "{{ couch_data_dir }}"
 
 	# Remove old backups of this backup type
-	find {{ couch_backup_dir }} -daystart -mtime "+${DAYS_TO_RETAIN_BACKUPS}" -name "couchdb_${BACKUP_TYPE}_*" -delete
+	find . -daystart -mtime "+${DAYS_TO_RETAIN_BACKUPS}" -name "couchdb_${BACKUP_TYPE}_*" -delete
 
 fi
 
 
 {% if remote_couch_backup %}
-rsync -avH --delete --exclude="commcarehq__synclogs.*.couch" {{ couch_backup_dir }}/ {{ remote_couch_backup }}:{{ couch_backup_dir }}
+rsync -avH --delete --exclude="commcarehq__synclogs.*.couch" ./ {{ remote_couch_backup }}:.
 {% endif %}
 
 {% if couch_s3 %}
-( cd {{ couch_backup_dir }} && python3.10 /usr/local/sbin/backup_snapshots.py "${BACKUP_FILE}" "${UPLOAD_NAME}" {{ couchdb_snapshot_bucket }} {{aws_endpoint}} )
+( cd . && python3.10 /usr/local/sbin/backup_snapshots.py "${BACKUP_FILE}" "${UPLOAD_NAME}" {{ couchdb_snapshot_bucket }} {{aws_endpoint}} )
 {% endif %}
