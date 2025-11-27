@@ -15,7 +15,7 @@ else
     FILENAME="postgres_${ENV}_${BACKUP_TYPE}_${TODAY}"
 fi
 
-DIRECTORY="{{ postgresql_backup_dir }}/${FILENAME}"
+DIRECTORY="./${FILENAME}"
 
 {% if not aws_versioning_enabled%}
 UPLOAD_NAME="${FILENAME}"
@@ -60,21 +60,21 @@ if [[ $? -ne 0 ]] ; then
     exit 2
 else
     if [ "$POSTGRES_BACKUP_HOURLY" == True ] && [ "$BACKUP_TYPE" == "hourly" ]; then
-        find {{ postgresql_backup_dir }} -mmin "+${MINUTES_TO_RETAIN_BACKUPS}" -name "postgres_${ENV}_${BACKUP_TYPE}_*" ! -path "*weekly*" ! -path "*daily*" -delete;
+        find . -mmin "+${MINUTES_TO_RETAIN_BACKUPS}" -name "postgres_${ENV}_${BACKUP_TYPE}_*" ! -path "*weekly*" ! -path "*daily*" -delete;
     fi
 
     # Remove old backups of this backup type, if backup succeded
-    find {{ postgresql_backup_dir }} -daystart -mtime "+$DAYS_TO_RETAIN_BACKUPS" -name "postgres_${ENV}_${BACKUP_TYPE}_*" -delete
-    find {{ postgresql_backup_dir }} -daystart -mtime "+$DAYS_TO_RETAIN_BACKUPS" -name "postgres_${BACKUP_TYPE}_*" -delete
+    find . -daystart -mtime "+$DAYS_TO_RETAIN_BACKUPS" -name "postgres_${ENV}_${BACKUP_TYPE}_*" -delete
+    find . -daystart -mtime "+$DAYS_TO_RETAIN_BACKUPS" -name "postgres_${BACKUP_TYPE}_*" -delete
 fi
 
 
 {% if postgres_s3 %}
 if [ -f "${DIRECTORY}.gz" ]; then
-    ( cd {{ postgresql_backup_dir }} && python3.10 /usr/local/sbin/backup_snapshots.py "${FILENAME}.gz" "${UPLOAD_NAME}.gz" {{ postgres_snapshot_bucket }} {{aws_endpoint}}  )
+    ( cd . && python3.10 /usr/local/sbin/backup_snapshots.py "${FILENAME}.gz" "${UPLOAD_NAME}.gz" {{ postgres_snapshot_bucket }} {{aws_endpoint}}  )
 fi
 if [ -f "${DIRECTORY}.tar.gz" ]; then
-    ( cd {{ postgresql_backup_dir }} && python3.10 /usr/local/sbin/backup_snapshots.py "${FILENAME}.tar.gz" "${UPLOAD_NAME}.tar.gz" {{ postgres_snapshot_bucket }} {{aws_endpoint}}  )
+    ( cd . && python3.10 /usr/local/sbin/backup_snapshots.py "${FILENAME}.tar.gz" "${UPLOAD_NAME}.tar.gz" {{ postgres_snapshot_bucket }} {{aws_endpoint}}  )
 fi
 {% endif %}
 
