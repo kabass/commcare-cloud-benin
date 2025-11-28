@@ -141,7 +141,7 @@ es_snapshot_bucket: "dimagi-{{ deploy_env }}-es-snapshots"
 aws_region: None
 # this reads "'s3.{{ aws_region }}.amazonaws.com' if aws_region else None"
 aws_endpoint: '{{ aws_region and "s3." + aws_region + ".amazonaws.com" }}'
-aws_versioning_enabled: true
+aws_versioning_enabled: false
 
 nofile_limit: 4096
 keepalived_recepient_email: '{{ root_email }}'
